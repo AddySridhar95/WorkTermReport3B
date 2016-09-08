@@ -1,0 +1,121 @@
+\documentclass[12pt]{article}
+\usepackage{wkrpt}
+\begin{document}
+
+% An analysis of different  ..... stylesheets
+% namescape?
+\title{Difference Between Applying Styles Using Global-Scoped CSS and Atomic-Scoped CSS in the Context of Component Based Applications}
+{
+	Yahoo!\\
+	Sunnyvale, CA
+}
+{
+	Aditya Sridhar\\
+	3B Software Engineering\\
+	Student ID 20539123\\
+	User ID a3sridha\\
+	September 8, 2016
+}
+
+
+\letter{REPORT NAME}{3B}{Yahoo!}{Mail Front-end}
+{
+	\noindent
+	Aditya Sridhar\\
+	201 Lester Street\\
+	Waterloo, ON N2L 3G1
+}
+{
+	Description of your co-op position. This should be about three sentences
+}
+{
+	Description of report and how it related to co-op position.
+}
+{
+	Acknowledgements
+}
+{
+	NAME, ID
+}
+
+
+\tocsection{Executive Summary}
+EXECUTIVE SUMMARY
+\newpage
+
+% para 1: The next generation of Yahoo Mail is built on ReactJS. ReactJS is used to build component-based web application. The idea is that the component is a single unit of the UI and deals with all that is assocciation with that unit(check dan hood ...) This report analyses the use of Atomic CSS (component-scoped) and global scoped CSS
+
+% para 2: A more traditional approach
+
+
+\toc
+% \lof
+% \lot
+
+
+\pagenumbering{arabic}
+\section{Introduction}
+\subsection{Background Information}
+Yahoo! is an internet technology company and is recognized as one of the pioneers of the early-internet era. Yahoo! Mail is a web-based email service owned by Yahoo! with hundreds of millions of users worldwide. The next generation of Yahoo! Mail web client is currently being developed and is built using the ReactJS framework. ReactJS is a component-based JavaScript library used for building user interfaces. The idea behind a component-based framework is that a complex user interface should be broken down into multiple components. Each component should follow the Single Responsibility Principle (SRP), which implies that it should be responsible for single part of the user interface.
+
+Traditionally the development of webpages was based on the principle of Separation of Concerns (SoC) which advocates breaking a problem into different concerns and using a resource to address a particular concern. In the context of web pages, the structure, presentation and behaviour layers were identified as separate concerns with Hyper Text Markup Language (HTML) defining the structure of a web page, Cascading Style Sheets (CSS) defining the content presentation styles and JavaScript (JS) defining how the web page behaves with user interaction. Hence CSS aids in separating the web page content from the web page presentation
+
+% Table: separation of concerns web page
+
+\subsection{Introduction to the Issue}
+CSS is a collection of rules, each rule containing one or more selectors and a block of styles. A selector is used to identify a particular HTML element in the web page content and the styles specified in the rule are applied to that particular HTML element. The following figure better elaborates ... 
+
+% Figure: <div>This is my web page</div> div { background-color: red };
+
+One of the main issues of using CSS is maintainability. As the content of the web page grows, CSS selectors are required to be more descriptive to target a particular element in the web page. The number of rules in a stylesheet also increases. This significantly affects the developers in the team and hampers scalability from a design standpoint.
+
+This report compares global-scoped stylesheets with component-scoped stylesheets in the context of component-based projects. It first provides some additional information about the issue and lists a set of design constraints and the evaluation criteria. It identifies the benefits and pitfalls of each accepted solution. The report uses AHP to perform quantitative analysis of the alternatives against a set of evaluation criteria. The report then concludes by identifying the best solution and provides some recommendations.
+
+
+% Background information
+
+% CSS and projects becoming large maintainability problem. Hence affects developers (check out dan hood)
+
+
+% Design constraints: 1) Not have high specificity(?? maybe put this in design criteria) 2) If change occurs, should not be applied to every element 3) Ability to style using classes. Refer to https://vineetgupta22.wordpress.com/2011/07/09/inline-vs-internal-vs-external-css/
+
+% reducing the scope improves maintainability significantly
+
+\section{REPORT BODY}
+\subsection{Design Constraints}
+
+\subsection{Design Criteria}
+
+\subsection{Accepted Solutions}
+\subsubsection{Global scoped}
+\subsubsection{Component scoped}
+
+\subsection{Alternative Not Considered}
+
+\section{Conclusions}
+CONCLUSIONS
+
+
+\section{Recommendations}
+RECOMMENDATIONS
+
+
+\newpage
+
+
+\addcontentsline{toc}{section}{\refname}
+\bibliography{wkrpt}
+\newpage
+
+
+\tocsection{Acknowledgements}
+ACKNOWLEDGEMENTS
+\newpage
+
+
+% \appendix{APPENDIX INDEX}{APPENDIX NAME}
+% APPENDICES
+% \newpage
+
+
+\end{document}
