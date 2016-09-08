@@ -1,0 +1,34 @@
+Atomic CSS is used for component based projects. See why React is component based and what does it mean
+
+Topic:
+
+Styling using Internal CSS vs Atomic CSS for component based projects
+
+Difference between Separation of Concerns architecture and Atomic CSS architecture for component based applications
+
+Difference Between Applying Styles Using Global-Scoped CSS and Atomic-Scoped CSS in the Context of Component Based Applications
+
+------------
+What topics to explore:
+1) What is a component based application
+
+What is the issue
+
+
+
+What is the context of the issue
+What are the alternatives
+Design constraints and design criteria
+
+
+Options: global CSS vs atomic CSS
+
+
+
+------------
+CSS concepts:
+
+Specificity: when multiple CSS declarations target an element, the declaration with highest specificity will prevail.
+
+
+Contextual selectors are used to scope styles. In case of global CSS, contextual CSS is used to limit styles to a particular section of web page. But this is not the case in atomic CSS

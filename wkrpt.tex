@@ -2,9 +2,7 @@
 \usepackage{wkrpt}
 \begin{document}
 
-% An analysis of different  ..... stylesheets
-% namescape?
-\title{Difference Between Applying Styles Using Global-Scoped CSS and Atomic-Scoped CSS in the Context of Component Based Applications}
+\title{An Analysis of Using Global Scoped Style Sheets and Atomic Scoped Style Sheets in the Context of Styling Component Based Applications}
 {
 	Yahoo!\\
 	Sunnyvale, CA
@@ -18,7 +16,7 @@
 }
 
 
-\letter{REPORT NAME}{3B}{Yahoo!}{Mail Front-end}
+\letter{An Analysis of Using Global Scoped Style Sheets and Atomic Scoped Style Sheets in the Context of Styling Component Based Applications}{3B}{Yahoo!}{Mail Front-end}
 {
 	\noindent
 	Aditya Sridhar\\
@@ -35,7 +33,7 @@
 	Acknowledgements
 }
 {
-	NAME, ID
+	Aditya Sridhar, 20539123
 }
 
 
@@ -56,9 +54,12 @@ EXECUTIVE SUMMARY
 \pagenumbering{arabic}
 \section{Introduction}
 \subsection{Background Information}
+
+% TODO: state that 2nd para is global CSS and define atomic CSS ??? or do that in first page of BODY
+
 Yahoo! is an internet technology company and is recognized as one of the pioneers of the early-internet era. Yahoo! Mail is a web-based email service owned by Yahoo! with hundreds of millions of users worldwide. The next generation of Yahoo! Mail web client is currently being developed and is built using the ReactJS framework. ReactJS is a component-based JavaScript library used for building user interfaces. The idea behind a component-based framework is that a complex user interface should be broken down into multiple components. Each component should follow the Single Responsibility Principle (SRP), which implies that it should be responsible for single part of the user interface.
 
-Traditionally the development of webpages was based on the principle of Separation of Concerns (SoC) which advocates breaking a problem into different concerns and using a resource to address a particular concern. In the context of web pages, the structure, presentation and behaviour layers were identified as separate concerns with Hyper Text Markup Language (HTML) defining the structure of a web page, Cascading Style Sheets (CSS) defining the content presentation styles and JavaScript (JS) defining how the web page behaves with user interaction. Hence CSS aids in separating the web page content from the web page presentation
+Traditionally the development of webpages was based on the principle of Separation of Concerns (SoC) which advocates breaking a problem into different concerns and using a resource to address a particular concern. In the context of web pages, the structure, presentation and behaviour layers were identified as separate concerns with Hyper Text Markup Language (HTML) defining the structure of a web page, Cascading Style Sheets (CSS) defining the content presentation styles and JavaScript (JS) defining how the web page behaves with user interaction. Hence CSS aids in separating web page presentation from web page content.
 
 % Table: separation of concerns web page
 
@@ -67,29 +68,68 @@ CSS is a collection of rules, each rule containing one or more selectors and a b
 
 % Figure: <div>This is my web page</div> div { background-color: red };
 
-One of the main issues of using CSS is maintainability. As the content of the web page grows, CSS selectors are required to be more descriptive to target a particular element in the web page. The number of rules in a stylesheet also increases. This significantly affects the developers in the team and hampers scalability from a design standpoint.
+% TODO: should this be moved to problem description?
+One of the main concerns of using CSS is maintainability. As the content of the web page grows, CSS selectors are required to be more descriptive to target a particular element in the web page. The number of rules in a stylesheet also increases. This significantly affects the developers in the team and hampers scalability from a design standpoint.
 
-This report compares global-scoped stylesheets with component-scoped stylesheets in the context of component-based projects. It first provides some additional information about the issue and lists a set of design constraints and the evaluation criteria. It identifies the benefits and pitfalls of each accepted solution. The report uses AHP to perform quantitative analysis of the alternatives against a set of evaluation criteria. The report then concludes by identifying the best solution and provides some recommendations.
+% TODO: define different scopes and say how component scope is related to atomic scope
 
-
-% Background information
-
-% CSS and projects becoming large maintainability problem. Hence affects developers (check out dan hood)
+This report compares global-scoped style sheets with component-scoped style sheets in the context of styling component-based projects. It first provides some additional information about the issue and lists a set of design constraints and the evaluation criteria. It identifies the benefits and pitfalls of each accepted solution. The report uses AHP to perform quantitative analysis of the alternatives against a set of evaluation criteria. The report then concludes by identifying the best solution and provides some recommendations.
 
 
-% Design constraints: 1) Not have high specificity(?? maybe put this in design criteria) 2) If change occurs, should not be applied to every element 3) Ability to style using classes. Refer to https://vineetgupta22.wordpress.com/2011/07/09/inline-vs-internal-vs-external-css/
+\section{Problem Specifications}
+\subsection{Problem Description}
 
-% reducing the scope improves maintainability significantly
 
-\section{REPORT BODY}
+% In problem description mainly talk about maintainability, and talk about how disadvantages of global CSS leads to maintainability issues. Also introduce topics like contextual selectors
+
+
+
+% Design constraints: 1) If change occurs, should not be applied to every element 3) Ability to style using classes. Refer to https://vineetgupta22.wordpress.com/2011/07/09/inline-vs-internal-vs-external-css/
+
+% IMPORTANT POINT: reducing the scope improves maintainability significantly
+
+% Design criteria: 1) Redundancy 2) Style changes should be intuitive and predictable (acss.io) 3) Low specificity 4) Decouple markup and styles 5) Cacheability
 \subsection{Design Constraints}
+A solution should adhere to the following design constraints, in order to be deemed as an accepted solution:
+% \begin{enumerate}
+%   \item The labels consists of sequential numbers.
+%   \item The numbers starts at 1 with every call to the enumerate environment.
+% \end{enumerate}
+
+
+% TODO: explain different types of selectors, explain contextual styling
 
 \subsection{Design Criteria}
+The following evaluation criteria are used to compare the two accepted solutions:
+\begin{enumerate}
+	% add Redundancy???
+	\item \textbf{Usage of context-based styling should be minimized}: The accepted solution should limit the usage of contextual styling as this demotes reusability and portability of styles. This ultimately makes style sheets hard to maintain.
+	% Note: this can be done by limiting the use of descendent selectors. say in global approach this could be kept in mind but hard to enforce as projects grow. In atomic approach this never happens
+
+	\item \textbf{Changes should be intuitive}: The accepted solution should be intuitive and predictable enough for the developer to visualize any changes made to the style sheet in terms of web page presentation. This includes adding, removing and modifying rules.
+
+	% \item \textbf{Low specificity of styles}: Be homogeneous. Plenty of room to override stykes
+
+	\item \textbf{Reusability of styles} The accepted solution should promote reusability of styles ......
+
+	\item \textbf{Decouple markup and styles}
+	\item \textbf{Cacheability}
+\end{enumerate}
+
+1) Redundancy
+
+2) Style changes should be intuitive and predictable
+
+3) Low specificity
+
+4) Decouple markup and styles
+
+5) Cacheability
 
 \subsection{Accepted Solutions}
 \subsubsection{Global scoped}
 \subsubsection{Component scoped}
-
+\subsection{Evaluation Process}
 \subsection{Alternative Not Considered}
 
 \section{Conclusions}
