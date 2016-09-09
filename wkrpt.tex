@@ -2,6 +2,10 @@
 \usepackage{wkrpt}
 \begin{document}
 
+% TODO change to Global scoped vs Atomic CSS
+
+% TODO: remove all occurences of atomic-scoped. there is nothing like that. change that to atomic css
+
 \title{An Analysis of Using Global Scoped Style Sheets and Atomic Scoped Style Sheets in the Context of Styling Component Based Applications}
 {
 	Yahoo!\\
@@ -55,25 +59,48 @@ EXECUTIVE SUMMARY
 \section{Introduction}
 \subsection{Background Information}
 
-% TODO: state that 2nd para is global CSS and define atomic CSS ??? or do that in first page of BODY
+Yahoo! is an internet technology company and is recognized as one of the pioneers of the early-internet era. Yahoo! Mail is a web-based email service owned by Yahoo! with hundreds of millions of users worldwide. The next generation of Yahoo! Mail web client is currently being developed and is built using the ReactJS framework. ReactJS is a component-based JavaScript library used for building user interfaces. The idea behind a component-based framework is that a complex user interface should composed of multiple components, and each component should follow the Single Responsibility Principle (SRP). This implies implies that a particular component should be responsible for single part of the user interface.
 
-Yahoo! is an internet technology company and is recognized as one of the pioneers of the early-internet era. Yahoo! Mail is a web-based email service owned by Yahoo! with hundreds of millions of users worldwide. The next generation of Yahoo! Mail web client is currently being developed and is built using the ReactJS framework. ReactJS is a component-based JavaScript library used for building user interfaces. The idea behind a component-based framework is that a complex user interface should be broken down into multiple components. Each component should follow the Single Responsibility Principle (SRP), which implies that it should be responsible for single part of the user interface.
+\vspace{0.5cm}
 
-Traditionally the development of webpages was based on the principle of Separation of Concerns (SoC) which advocates breaking a problem into different concerns and using a resource to address a particular concern. In the context of web pages, the structure, presentation and behaviour layers were identified as separate concerns with Hyper Text Markup Language (HTML) defining the structure of a web page, Cascading Style Sheets (CSS) defining the content presentation styles and JavaScript (JS) defining how the web page behaves with user interaction. Hence CSS aids in separating web page presentation from web page content.
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|c|c|}
+		\hline
+		\textbf{Concern} & \textbf{Resource} \\ 
+		\hline
+		Presentation & CSS \\
+		\hline 
+		Structure & HTML \\
+		\hline
+		Behaviour & JavaScript \\
+		\hline
+	\end{tabular}
+	\caption{Long table caption}
+\end{table}
 
-% Table: separation of concerns web page
+\vspace{0.5cm}
+
+Traditionally, the development of web pages was based on the principle of Separation of Concerns (SoC) which advocates breaking a problem into different concerns and using a resource to address a particular concern. In the context of web pages, the structure, presentation and behaviour layers were identified as separate concerns with Hyper Text Markup Language (HTML) defining the structure of a web page, Cascading Style Sheets (CSS) defining the content presentation styles and JavaScript (JS) defining how the web page behaves with user interaction. Table 1.1 summarizes the SoC principle in the case of web page development.
+
+\newpage
 
 \subsection{Introduction to the Issue}
-CSS is a collection of rules, each rule containing one or more selectors and a block of styles. These rules are written in style sheets which are then packaged in the main project. A selector is used to identify a particular HTML element in the web page content and the styles specified in the rule are applied to that particular HTML element. The following figure better elaborates ... 
+CSS is a collection of rules, each rule containing one or more selectors and a block of styles. These rules are written in style sheets which are then packaged in the main project. A selector is used to identify a particular HTML element in the web page content and the styles specified in the rule are applied to that particular HTML element. Figure 1.1 better elaborates how CSS rules work. The selector \textit{div} targets the \textit{<div>} HTML element and the styles mentioned in the corresponding style block are applied to the targeted HTML element.
 
-% Figure: <div>This is my web page</div> div { background-color: red };
+\vspace{0.5cm}
 
-% TODO: should this be moved to problem description?
+\begin{figure}[h]
+\includegraphics[scale=0.7]{selector-normal}
+\centering
+\caption{Example of styling using CSS selectors}
+\end{figure}
 
+\vspace{0.5cm}
 
-% TODO: define different scopes and say how component scope is related to atomic scope
+The scope of a CSS rule is a portion of the web page where that rule can be used to style an element on the web page. The rules contained in a global-scoped style sheet can be used to style any element on the web page. Hence the scope of the rules in a global style sheet is not limited to a particular portion of the web page. Atomic CSS on the other hand is a design principle that advocates restricting the scope of a CSS rule to a component of the web page.
 
-This report compares global-scoped style sheets with component-scoped style sheets in the context of styling component-based projects. It first provides some additional information about the issue and lists a set of design constraints and the evaluation criteria. It identifies the benefits and pitfalls of each accepted solution. The report uses AHP to perform quantitative analysis of the alternatives against a set of evaluation criteria. The report then concludes by identifying the best solution and provides some recommendations.
+This report compares CSS in global style sheets with Atomic CSS in the context of styling component-based applications. It first provides some additional information about the issue and lists a set of design constraints and the evaluation criteria. It identifies the benefits and pitfalls of each accepted solution. The report uses AHP to perform quantitative analysis of the alternatives against a set of evaluation criteria. The report then concludes by identifying the best solution and provides some recommendations.
 
 
 \section{Problem Specifications}
@@ -93,7 +120,7 @@ As mentioned earlier, a CSS selector targets a particular HTML element in the we
 At times, a developer might want to match a web page element that is a descendent of another web page element. For example in Figure 2.1 the \textit{<div>} element whose class name is \textit{child1} is a descendent of the \textit{<div>} element whose class name is \textit{parent}. The CSS selector \textit{.parent .child1} is an example of a context-based selector. It is targeting the element with class name as \textit{child1} that is a descendent of the element with class name as \textit{parent}. This means that the descendent element is being styled in the context of its parent, and that the rule is redundant outside of this context. This will ultimately lead to more rules being added to the style sheet if the requirement to style the same element outside of the context arises.
 
 
-
+% TODO: add one more para
 
 % As the number of rules in a style sheet increases, the maintainability decreases. Hence making the styles reusable makes the stylesheets more maintainable. ... Intutive thing ... 
 
@@ -124,14 +151,14 @@ A solution should adhere to the following design constraints, in order to be dee
 The following evaluation criteria are used to compare the two accepted solutions:
 \begin{enumerate}
 
-	\item \textbf{Usage of context-based styling should be minimized}: The accepted solution should limit the usage of contextual styling as this demotes reusability and portability of styles. This ultimately makes style sheets hard to maintain.
+	\item \textbf{Minimize the usage of context-based styling}: The accepted solution should limit the usage of contextual styling as this demotes reusability and portability of styles. This ultimately makes style sheets hard to maintain.
 	% Note: this can be done by limiting the use of descendent selectors. say in global approach this could be kept in mind but hard to enforce as projects grow. In atomic approach this never happens
 
 	\item \textbf{Low specificity of styles}: Low CSS specificity enables the developer to override a CSS rule when requirements change. This makes the style sheets more maintainable.
 
-	\item \textbf{Changes should be intuitive}: The accepted solution should be intuitive and predictable enough for the developer to visualize any changes made to the style sheet in terms of web page presentation. This includes adding, removing and modifying rules.
+	\item \textbf{Intuitive style changes}: The accepted solution should be intuitive and predictable enough for the developer to visualize any changes made to the style sheet in terms of web page presentation. This includes adding, removing and modifying rules.
 
-	\item \textbf{Reusability of styles} The accepted solution should promote reusability of styles. New style requirements being added to the specification should sparingly lead to new rules being added to the style sheet.
+	\item \textbf{Style reusability} The accepted solution should promote reusability of styles. New style requirements being added to the specification should sparingly lead to new rules being added to the style sheet.
 
 	\item \textbf{Decouple markup and styles} The accepted solution should disallow coupling of web page content (markup) and styles. This enables the developer to make changes to the presentation without making changes to the markup.
 

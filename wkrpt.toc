@@ -2,17 +2,17 @@
 \contentsline {section}{Table of Contents}{iv}
 \contentsline {section}{\numberline {1}Introduction}{1}
 \contentsline {subsection}{\numberline {1.1}Background Information}{1}
-\contentsline {subsection}{\numberline {1.2}Introduction to the Issue}{1}
-\contentsline {section}{\numberline {2}Problem Specifications}{2}
-\contentsline {subsection}{\numberline {2.1}Problem Description}{2}
-\contentsline {subsection}{\numberline {2.2}Design Constraints}{3}
-\contentsline {subsection}{\numberline {2.3}Design Criteria}{3}
-\contentsline {subsection}{\numberline {2.4}Accepted Solutions}{4}
-\contentsline {subsubsection}{\numberline {2.4.1}Atomic scoped}{4}
-\contentsline {subsubsection}{\numberline {2.4.2}Global scoped}{4}
-\contentsline {subsection}{\numberline {2.5}Evaluation Process}{4}
-\contentsline {subsection}{\numberline {2.6}Alternative Not Considered}{4}
-\contentsline {section}{\numberline {3}Conclusions}{4}
-\contentsline {section}{\numberline {4}Recommendations}{4}
-\contentsline {section}{References}{5}
-\contentsline {section}{Acknowledgements}{5}
+\contentsline {subsection}{\numberline {1.2}Introduction to the Issue}{2}
+\contentsline {section}{\numberline {2}Problem Specifications}{3}
+\contentsline {subsection}{\numberline {2.1}Problem Description}{3}
+\contentsline {subsection}{\numberline {2.2}Design Constraints}{4}
+\contentsline {subsection}{\numberline {2.3}Design Criteria}{4}
+\contentsline {subsection}{\numberline {2.4}Accepted Solutions}{5}
+\contentsline {subsubsection}{\numberline {2.4.1}Atomic scoped}{5}
+\contentsline {subsubsection}{\numberline {2.4.2}Global scoped}{5}
+\contentsline {subsection}{\numberline {2.5}Evaluation Process}{5}
+\contentsline {subsection}{\numberline {2.6}Alternative Not Considered}{5}
+\contentsline {section}{\numberline {3}Conclusions}{5}
+\contentsline {section}{\numberline {4}Recommendations}{5}
+\contentsline {section}{References}{6}
+\contentsline {section}{Acknowledgements}{6}
