@@ -28,9 +28,14 @@
 	Waterloo, ON N2L 3G1
 }
 {
-	Description of your co-op position. This should be about three sentences
+	This report, entitled \textit{“An Analysis of Using Global Scoped Style Sheets and Atomic Scoped Style Sheets in the Context of Styling Component Based Applications”}, was prepared during my 3B work term at Yahoo!, where I worked on Yahoo! Mail in the Front-end team.
 }
 {
+	The Yahoo! Mail front-end team is currently developing the next generation web client of Yahoo! Mail built using ReactJS. What did you work on .. 
+
+}
+{
+	% The team has adopted the Atomic CSS paradigm for maintaining style sheets developed by other engieers at Yahoo
 	Description of report and how it related to co-op position.
 }
 {
@@ -83,8 +88,6 @@ Yahoo! is an internet technology company and is recognized as one of the pioneer
 
 Traditionally, the development of web pages was based on the principle of Separation of Concerns (SoC) which advocates breaking a problem into different concerns and using a resource to address a particular concern. In the context of web pages, the structure, presentation and behaviour layers were identified as separate concerns with Hyper Text Markup Language (HTML) defining the structure of a web page, Cascading Style Sheets (CSS) defining the content presentation styles and JavaScript (JS) defining how the web page behaves with user interaction. Table 1.1 summarizes the SoC principle in the case of web page development.
 
-\newpage
-
 \subsection{Introduction to the Issue}
 CSS is a collection of rules, each rule containing one or more selectors and a block of styles. These rules are written in style sheets which are then packaged in the main project. A selector is used to identify a particular HTML element in the web page content and the styles specified in the rule are applied to that particular HTML element. Figure 1.1 better elaborates how CSS rules work. The selector \textit{div} targets the \textit{<div>} HTML element and the styles mentioned in the corresponding style block are applied to the targeted HTML element.
 
@@ -102,6 +105,7 @@ The scope of a CSS rule is a portion of the web page where that rule can be used
 
 This report compares CSS in global style sheets with Atomic CSS in the context of styling component-based applications. It first provides some additional information about the issue and lists a set of design constraints and the evaluation criteria. It identifies the benefits and pitfalls of each accepted solution. The report uses AHP to perform quantitative analysis of the alternatives against a set of evaluation criteria. The report then concludes by identifying the best solution and provides some recommendations.
 
+\newpage
 
 \section{Problem Specifications}
 \subsection{Problem Description}
@@ -144,6 +148,13 @@ At times, a developer might want to match a web page element that is a descenden
 
 \subsection{Design Constraints}
 A solution should adhere to the following design constraints, in order to be deemed as an accepted solution:
+\begin{enumerate}
+
+	\item The styles should be able to be overriden by other styles if required. That is, the selector must not have the highest specificity.
+
+	\item The styles should be able to be applied using class selectors.
+
+\end{enumerate}
 % Design constraints: 1) If change occurs, should not be applied to every element 3) Ability to style using classes. Refer to https://vineetgupta22.wordpress.com/2011/07/09/inline-vs-internal-vs-external-css/
 
 
@@ -162,27 +173,82 @@ The following evaluation criteria are used to compare the two accepted solutions
 
 	\item \textbf{Decouple markup and styles} The accepted solution should disallow coupling of web page content (markup) and styles. This enables the developer to make changes to the presentation without making changes to the markup.
 
-	% \item \textbf{Cacheability}
 \end{enumerate}
 
-\subsection{Accepted Solutions}
-\subsubsection{Atomic scoped}
-% This approach does not need context-based styling to localize scope
-
-
-\subsubsection{Global scoped}
-
 \subsection{Evaluation Process}
-\subsection{Alternative Not Considered}
+
+\newpage
+
+\section{Accepted Solutions}
+\subsection{Atomic CSS}
+% TODO: conceived at Yahoo
+% This approach does not need context-based styling to localize scope
+\subsubsection{Explaination}
+% Scope limited to component. why component makes sense ... in a component based app
+
+\subsubsection{Advantages}
+\subsubsection{Disadvantages}
+
+\subsection{Global Scoped Style Sheets}
+\subsubsection{Explaination}
+% Traditional approach. When SoC occured, this gained pace. Maybe talk about history
+
+The rules present in a global-scoped style sheet can be used to style any element in the web page content. Since the scope is not limited to a particular portion of the web page, the usage of context-based selectors is inevitable as the size of the project grows. This tends to increase the specificity of CSS selectors. As an example consider the case in Figure x.x. The CSS selector is targetting the \textit{<p>} element and setting its font size to be 10 pixels.
+
+% TODO investigate including the two figures in one \begin{figure} block and using (a) and (b)
+
+\vspace{0.5cm}
+
+\begin{figure}[h]
+\includegraphics[scale=0.7]{global-scope-one}
+\centering
+\caption{TODO}
+\end{figure}
+
+\vspace{0.5cm}
+
+Now, say a new requirements demands all \textit{<p>} elements contained inside a \textit{<div>} element with class name as \textit{enlarged} to have a font size of 30 pixels. To override the existing style targetting all \textit{<p>} elements, we are forced to use context-based selector as illustrated in Figure x.y.
+
+\vspace{0.5cm}
+
+\begin{figure}[h]
+\includegraphics[scale=0.7]{global-scope-two}
+\centering
+\caption{TODO}
+\end{figure}
+
+\vspace{0.5cm}
+
+
+\subsubsection{Advantages}
+The following are the advantages of using global-scoped style sheets:
+% \begin{enumerate}
+% 	\item
+% 	\item
+% \end{enumerate}
+% No separation of concerns.
+
+% Wide range of selectors can be used. 
+
+\subsubsection{Disadvantages}
+% Possibility of selectors having high specificity
+% Possibility of context based styling
+% Possibility of redundancy
+
+\newpage
+
+\section{Alternative Not Considered}
 % inline CSS
+% Drawbacks:
+% 1) If change occurs, should not be applied to every element 3) Ability to style using classes. Refer to https://vineetgupta22.wordpress.com/2011/07/09/inline-vs-internal-vs-external-css/
+\newpage
+
 \section{Conclusions}
 CONCLUSIONS
-
+\newpage
 
 \section{Recommendations}
 RECOMMENDATIONS
-
-
 \newpage
 
 
