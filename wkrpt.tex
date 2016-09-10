@@ -159,7 +159,7 @@ A solution should adhere to the following design constraints, in order to be dee
 
 
 \subsection{Design Criteria}
-The following evaluation criteria are used to compare the two accepted solutions:
+Reusability and maintainability are important features in the context of component based applications. The following evaluation criteria were designed keeping these features in mind and are used to compare and analyze the two accepted solutions.
 \begin{enumerate}
 
 	\item \textbf{Minimize the usage of context-based styling}: The accepted solution should limit the usage of contextual styling as this demotes reusability and portability of styles. This ultimately makes style sheets hard to maintain.
@@ -217,21 +217,61 @@ The following are the advantages of using global-scoped style sheets:
 \subsubsection{Disadvantages}
 The following are the disadvantages of using global-scoped style sheets:
 \begin{enumerate}
-	\item
-\end{enumerate}
-% Possibility of selectors having high specificity
-% Possibility of context based styling
-% Possibility of redundancy
-% Intuitive
+	\item Since scope of CSS rules is not restricted to a particular section of the web page, the usage of context based selectors is unavoidable as size of the project grows.
 
-% \subsection{Atomic CSS}
-% % TODO: conceived at Yahoo
+	\item CSS selectors tend to be more descriptive as size of the project grows. Hence CSS selector specificity is high.
+
+	\item CSS rules are not intuitive as the effect made by a context-based CSS rule on the presentation of a web page element is hard to visualize.
+\end{enumerate}
+
+\subsection{Atomic CSS}
+Atomic CSS advocates restricting the scope of a CSS rule to a component of the application. It was invented by engineers at Yahoo! primarily to adopt a more modular approach to maintaining style sheets. This approach was found to thrive in the context of component-based technologies like ReactJS. This approach violates the SoC principle since a component's presentation is mixed with its structure. However this is logically appropriate in the context of component-based applications as a component is considered an independent view that handles its own behaviour and application state. Hence this approach enables a developer to maintain components instead of maintaining style sheets.
+
+\vspace{0.5cm}
+
+\begin{figure}[h]
+\includegraphics[scale=0.7]{atomic-css}
+\centering
+\caption{Atomic CSS method}
+\end{figure}
+
+\vspace{0.5cm}
+
+This method promotes the use of unsemantic class names. There is a one-to-one relationship between a style and a class name. Hence the styles are context agnostic* improving their reusability dramatically. Figure x.x is an example of how one can style web pages using the Atomic CSS method. The specifications of this example is the same as that in Figure 3.2. Here, a class name is allocated for each style and the styles are not contextual. The specificity of the styles is also low. Further, since the styles are devoid of a context, they can be reused in other parts of the component.
+
+\subsubsection{Advantages}
+The following are the advantages of using the Atomic CSS method:
+\begin{enumerate}
+	\item Since CSS styles are context agnostic, they can be used to style a particular HTML element in the component without the usage of context-based selectors.
+
+	\item Owing to the one-to-one relationship between styles and class names, a CSS selector need not be descriptive when targetting a particular HTML element in the component. Hence specificity of a selector is low, allowing for easier style overrides in the future.
+
+	\item The effect made by a CSS rule on a component's presentation is easy to visualize. This makes it easier to identify and clean up rules that are obsolete.
+\end{enumerate}
+
+
+\subsubsection{Disadvantages}
+The following are the advantages of using the Atomic CSS method:
+\begin{enumerate}
+	\item This method does not follow the SoC principle to some extent as a component's presentation is linked with its behaviour and structure. Hence a change made to a style often leads to changes being made to the component's markup
+
+	\item HTML5 documentation* promotes the use of semantic class names and states that a class name should be reflective of the element's behaviour instead of describing an element's presentation. This is being violated by the Atomic CSS approach as class names are used to describe an element's style.
+\end{enumerate}
+% SRP with classes
+% styling is not contextual
+% Since the component is reusable, the styles are reusable
+
 % % This approach does not need context-based styling to localize scope
+
+% binding markup and styles
+
 % \subsubsection{Explaination}
-% % Scope limited to component. why component makes sense ... in a component based app
 
 % \subsubsection{Advantages}
+% Easy to clean up unused styles
 % \subsubsection{Disadvantages}
+% binds markup and styles
+% HTML5 semantic crap
 
 
 \newpage
