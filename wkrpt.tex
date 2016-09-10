@@ -225,6 +225,7 @@ The following are the disadvantages of using global-scoped style sheets:
 \end{enumerate}
 
 \subsection{Atomic CSS}
+\subsubsection{Explanation}
 Atomic CSS advocates restricting the scope of a CSS rule to a component of the application. It was invented by engineers at Yahoo! primarily to adopt a more modular approach to maintaining style sheets. This approach was found to thrive in the context of component-based technologies like ReactJS. This approach violates the SoC principle since a component's presentation is mixed with its structure. However this is logically appropriate in the context of component-based applications as a component is considered an independent view that handles its own behaviour and application state. Hence this approach enables a developer to maintain components instead of maintaining style sheets.
 
 \vspace{0.5cm}
@@ -237,7 +238,7 @@ Atomic CSS advocates restricting the scope of a CSS rule to a component of the a
 
 \vspace{0.5cm}
 
-This method promotes the use of unsemantic class names. There is a one-to-one relationship between a style and a class name. Hence the styles are context agnostic* improving their reusability dramatically. Figure x.x is an example of how one can style web pages using the Atomic CSS method. The specifications of this example is the same as that in Figure 3.2. Here, a class name is allocated for each style and the styles are not contextual. The specificity of the styles is also low. Further, since the styles are devoid of a context, they can be reused in other parts of the component.
+This method promotes the use of unsemantic class names. There is a one-to-one relationship between a style and a class name. Hence the styles are context agnostic* improving their reusability dramatically. Figure 3.3 is an example of how one can style web pages using the Atomic CSS method. The specifications of this example is the same as that in Figure 3.2. Here, a class name is allocated for each style and the styles are not contextual. The specificity of the styles is also low. Further, since the styles are devoid of a context, they can be reused in other parts of the component.
 
 \subsubsection{Advantages}
 The following are the advantages of using the Atomic CSS method:
@@ -255,7 +256,7 @@ The following are the advantages of using the Atomic CSS method:
 \begin{enumerate}
 	\item This method does not follow the SoC principle to some extent as a component's presentation is linked with its behaviour and structure. Hence a change made to a style often leads to changes being made to the component's markup
 
-	\item HTML5 documentation* promotes the use of semantic class names and states that a class name should be reflective of the element's behaviour instead of describing an element's presentation. This is being violated by the Atomic CSS approach as class names are used to describe an element's style.
+	\item HTML5 documentation[2] promotes the use of semantic class names and states that a class name should be reflective of the element's behaviour instead of describing an element's presentation. This is being violated by the Atomic CSS approach as class names are used to describe an element's style.
 \end{enumerate}
 % SRP with classes
 % styling is not contextual
@@ -277,6 +278,32 @@ The following are the advantages of using the Atomic CSS method:
 \newpage
 
 \section{Alternative Not Considered}
+\subsection{Explanation}
+This method is used to apply styles directly to an HTML element[1] and is named the Inline CSS method. Hence styles and markup are tightly coupled together. Figure 4.1 illustrates how to style a particular HTML element using the Inline CSS method. The style attribute is used to record an element's styles. Inline CSS have the highest specificity and will have precedence over other methods used to style web page content. This was one of the earliest methods to style web pages and was soon replace by external style sheets. Today, its considered a bad practice to use this method to style web pages.
+
+\vspace{0.5cm}
+
+\begin{figure}[h]
+\includegraphics[scale=0.7]{inline-css}
+\centering
+\caption{Inline CSS method}
+\end{figure}
+
+\subsection{Advantages}
+There are limited advantages to the Inline CSS method.
+\begin{enumerate}
+	\item Since they have the highest precedence, they can be used to try out a particular style on an element to determine if its the right fit or not.
+\end{enumerate}
+
+\subsection{Disadvantages}
+The following are the disadvantages of the inline CSS method
+\begin{enumerate}
+	\item Inline styles have the highest specificity, making them hard to be overriden by other styles.
+
+	\item This method leads to poor reusability of styles. Styles must be specified using the style attribute for every occurence of the target element in the markup.
+\end{enumerate}
+
+
 % image of inline and corresponding CSS
 % inline CSS
 % Drawbacks:
@@ -308,3 +335,7 @@ ACKNOWLEDGEMENTS
 
 
 \end{document}
+
+% [1] http://webdesign.about.com/od/beginningcss/qt/tipcssinlinesty.htm
+
+% [2] https://www.w3.org/TR/html5/dom.html#classes

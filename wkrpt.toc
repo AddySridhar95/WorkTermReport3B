@@ -13,10 +13,14 @@
 \contentsline {subsubsection}{\numberline {3.1.1}Explaination}{6}
 \contentsline {subsubsection}{\numberline {3.1.2}Advantages}{7}
 \contentsline {subsubsection}{\numberline {3.1.3}Disadvantages}{7}
-\contentsline {subsection}{\numberline {3.2}Atomic CSS}{7}
-\contentsline {subsubsection}{\numberline {3.2.1}Advantages}{8}
-\contentsline {subsubsection}{\numberline {3.2.2}Disadvantages}{9}
+\contentsline {subsection}{\numberline {3.2}Atomic CSS}{8}
+\contentsline {subsubsection}{\numberline {3.2.1}Explanation}{8}
+\contentsline {subsubsection}{\numberline {3.2.2}Advantages}{9}
+\contentsline {subsubsection}{\numberline {3.2.3}Disadvantages}{9}
 \contentsline {section}{\numberline {4}Alternative Not Considered}{10}
+\contentsline {subsection}{\numberline {4.1}Explanation}{10}
+\contentsline {subsection}{\numberline {4.2}Advantages}{10}
+\contentsline {subsection}{\numberline {4.3}Disadvantages}{10}
 \contentsline {section}{\numberline {5}Conclusions}{11}
 \contentsline {section}{\numberline {6}Recommendations}{12}
 \contentsline {section}{References}{13}
