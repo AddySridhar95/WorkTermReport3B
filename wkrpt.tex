@@ -64,7 +64,7 @@ EXECUTIVE SUMMARY
 \section{Introduction}
 \subsection{Background Information}
 
-Yahoo! is an internet technology company and is recognized as one of the pioneers of the early-internet era. Yahoo! Mail is a web-based email service owned by Yahoo! with hundreds of millions of users worldwide. The next generation of Yahoo! Mail web client is currently being developed and is built using the ReactJS framework. ReactJS is a component-based JavaScript library used for building user interfaces. The idea behind a component-based framework is that a complex user interface should composed of multiple components, and each component should follow the Single Responsibility Principle (SRP). This implies implies that a particular component should be responsible for single part of the user interface.
+Yahoo! is a technology company and is recognized as one of the pioneers of the early-internet era. Yahoo! Mail is a web-based email service owned by Yahoo! with hundreds of millions of users worldwide. The next generation of Yahoo! Mail web client is currently being developed and is built using the ReactJS framework. ReactJS is a component-based JavaScript library used for building user interfaces. The idea behind a component-based framework is that a complex user interface should composed of multiple components, and each component should follow the Single Responsibility Principle (SRP). This implies implies that a particular component should be responsible for single part of the user interface.
 
 \vspace{0.5cm}
 
@@ -180,64 +180,64 @@ The following evaluation criteria are used to compare the two accepted solutions
 \newpage
 
 \section{Accepted Solutions}
-\subsection{Atomic CSS}
-% TODO: conceived at Yahoo
-% This approach does not need context-based styling to localize scope
-\subsubsection{Explaination}
-% Scope limited to component. why component makes sense ... in a component based app
-
-\subsubsection{Advantages}
-\subsubsection{Disadvantages}
-
 \subsection{Global Scoped Style Sheets}
 \subsubsection{Explaination}
-% Traditional approach. When SoC occured, this gained pace. Maybe talk about history
-
-The rules present in a global-scoped style sheet can be used to style any element in the web page content. Since the scope is not limited to a particular portion of the web page, the usage of context-based selectors is inevitable as the size of the project grows. This tends to increase the specificity of CSS selectors. As an example consider the case in Figure x.x. The CSS selector is targetting the \textit{<p>} element and setting its font size to be 10 pixels.
-
-% TODO investigate including the two figures in one \begin{figure} block and using (a) and (b)
+Before CSS was invented, styles were written directly on the HTML markup, resulting in web page content and styles being tightly coupled with each other. As the use of the internet evolved, styles were isolated in style sheets by virtue of the SoC principle. These style sheets had a global scope and the rules present in these style sheet can be used to style any element in the web page content. Since the scope is not limited to a particular portion of the web page, the usage of context-based selectors is inevitable as the size of the project grows. As an example consider the case in Figure x.x. The CSS selector is targetting the \textit{<p>} element and setting its font size to be 10 pixels.
 
 \vspace{0.5cm}
 
 \begin{figure}[h]
 \includegraphics[scale=0.7]{global-scope-one}
 \centering
-\caption{TODO}
+\caption{Plain selector targetting \textit{<p>} element}
 \end{figure}
-
-\vspace{0.5cm}
-
-Now, say a new requirements demands all \textit{<p>} elements contained inside a \textit{<div>} element with class name as \textit{enlarged} to have a font size of 30 pixels. To override the existing style targetting all \textit{<p>} elements, we are forced to use context-based selector as illustrated in Figure x.y.
 
 \vspace{0.5cm}
 
 \begin{figure}[h]
 \includegraphics[scale=0.7]{global-scope-two}
 \centering
-\caption{TODO}
+\caption{Context-based selector targetting \textit{<p>} element}
 \end{figure}
 
 \vspace{0.5cm}
 
+If a new requirements demands all \textit{<p>} elements contained inside a \textit{<div>} element with class name as \textit{enlarged} to have a font size of 30 pixels. To override the existing style targetting all \textit{<p>} elements, the usage of  context-based selector as illustrated in Figure x.y cannot be avoided. It can noted that the specificity of the new selector has also increased, making it harder to be overriden in the future. 
+
+%Finally, since the scope is not limited, reusability is a concern .. 
 
 \subsubsection{Advantages}
 The following are the advantages of using global-scoped style sheets:
-% \begin{enumerate}
-% 	\item
-% 	\item
-% \end{enumerate}
-% No separation of concerns.
+\begin{enumerate}
+	\item Web page styles are decoupled from the markup allowing for a more flexible development with less refactoring. Changes made to the markup did not often lead to changing of styles and vice-versa.
 
-% Wide range of selectors can be used. 
+	\item This approach introduced the usage of selectors to target a particular element in the web page markup. This enabled matching markup elements with similar styles and styling them all at once, improving reusability considerably.
+\end{enumerate} 
 
 \subsubsection{Disadvantages}
+The following are the disadvantages of using global-scoped style sheets:
+\begin{enumerate}
+	\item
+\end{enumerate}
 % Possibility of selectors having high specificity
 % Possibility of context based styling
 % Possibility of redundancy
+% Intuitive
+
+% \subsection{Atomic CSS}
+% % TODO: conceived at Yahoo
+% % This approach does not need context-based styling to localize scope
+% \subsubsection{Explaination}
+% % Scope limited to component. why component makes sense ... in a component based app
+
+% \subsubsection{Advantages}
+% \subsubsection{Disadvantages}
+
 
 \newpage
 
 \section{Alternative Not Considered}
+% image of inline and corresponding CSS
 % inline CSS
 % Drawbacks:
 % 1) If change occurs, should not be applied to every element 3) Ability to style using classes. Refer to https://vineetgupta22.wordpress.com/2011/07/09/inline-vs-internal-vs-external-css/
