@@ -55,9 +55,8 @@ EXECUTIVE SUMMARY
 
 
 \toc
-% \lof
-% \lot
-
+\lof
+\lot
 
 \pagenumbering{arabic}
 \section{Introduction}
@@ -102,7 +101,7 @@ CSS is a collection of rules, each rule containing one or more selectors and a b
 
 The scope of a CSS rule is a portion of the web page where that rule can be used to style an element on the web page. The rules contained in a global-scoped style sheet can be used to style any element on the web page. Hence the scope of the rules in a global style sheet is not limited to a particular portion of the web page. Atomic CSS on the other hand is a design principle that advocates restricting the scope of a CSS rule to a component of the web page.
 
-This report compares CSS in global style sheets with Atomic CSS in the context of styling component-based applications. It first provides some additional information about the issue and lists a set of design constraints and the evaluation criteria. It identifies the benefits and pitfalls of each accepted solution. The report uses AHP to perform quantitative analysis of the alternatives against a set of evaluation criteria. The report then concludes by identifying the best solution and provides some recommendations.
+This report compares CSS in global style sheets with Atomic CSS in the context of styling component-based applications. It first provides some additional information about the issue and lists a set of design constraints and the evaluation criteria. It identifies the benefits and pitfalls of each accepted solution. The report uses Analytical Hierarchical Process (AHP) to perform quantitative analysis of the alternatives against a set of evaluation criteria. The report then concludes by identifying the best solution and provides some recommendations.
 
 \newpage
 
@@ -331,7 +330,7 @@ The following are the disadvantages of the inline CSS method
 \newpage
 
 \section{Results}
-Since the two solutions are compared against a set of relatively subjective evaluation criteria, the AHP is the most suitable MCDA method of quantitative analysis. The alternative score for each criterion is calculated and is then multiplied with the criterion’s weighting to obtain a final score of each alternative for each criterion. Table x.x represents a set of final scores. Figure x.y is the graphical representation of the set of final scores.
+Since the two solutions are compared against a set of relatively subjective evaluation criteria, AHP is the most suitable MCDA method of quantitative analysis. The alternative score for each criterion is calculated and is then multiplied with the criterion’s weighting to obtain a final score of each alternative for each criterion. \textbf{Table 5.1} represents a set of final scores. Figure x.y is the graphical representation of the set of final scores.
 
 \vspace{0.5cm}
 
@@ -359,16 +358,29 @@ Since the two solutions are compared against a set of relatively subjective eval
 
 \vspace{0.5cm}
 
-% Figure: Graphical representation of final scores
+\begin{figure}[h]
+\includegraphics[scale=0.7]{chart}
+\centering
+\caption{Graphical representation of final scores}
+\end{figure}
+
+\vspace{0.5cm}
+
+\newpage
 
 \section{Conclusions}
 All the solutions were judged primarily on context-based styling usage, selector specificity, style simplicity, style reusability and content-style separation. The accepted solutions, the Global CSS method and the Atomic CSS method, were found to satisfy all the design constraints whereas, the rejected solution, the Inline CSS method, was found not to satisfy the design constraints. The report utilizes AHP to perform a robust, quantitative analysis of the two techniques while dealing with multiple evaluation criteria.
 
 The results indicate that the Atomic CSS method fared significantly better than the Global CSS method when compared on the basis of context-based styling usage, selector specificity and style simplicity. On the basis of style reusability, the Atomic CSS method performed marginally better than the Global CSS method. However, on the basis of content and style separation, the Global CSS method was found to perform significantly better than the Atomic CSS method. Ultimately, this report concludes that the Atomic CSS method should be preferred over the Global CSS method.
+
 \newpage
 
 \section{Recommendations}
-This report recommends using the Atomic CSS method to style content in component based applications.
+This report recommends using the Atomic CSS method to style content in component based applications. Having a one-to-one mapping between styles and class names is highly recommended. Removing obsolete styles from style sheets is also recommended as it increases maintainability. Developers are encouraged to follow the ideology of maintaining components and not style sheets, as Atomic CSS is found to work best with this modular approach.
+
+It is also recommended to maintain a global style sheet containing a list of constant styles, as this helps maintain uniformity across components. For example if the colour of the text displaying error message is red across all components, it could be accessed from a global style sheet by all component when needed. 
+
+
 \newpage
 
 
