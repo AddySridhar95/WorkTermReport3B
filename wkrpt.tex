@@ -31,8 +31,7 @@
 	This report, entitled \textit{“An Analysis of Using Global Scoped Style Sheets and Atomic Scoped Style Sheets in the Context of Styling Component Based Applications”}, was prepared during my 3B work term at Yahoo!, where I worked on Yahoo! Mail in the Front-end team.
 }
 {
-	The Yahoo! Mail front-end team is currently developing the next generation web client of Yahoo! Mail built using ReactJS. What did you work on .. 
-
+	The Yahoo! Mail front-end team is currently developing the next generation web client of Yahoo! Mail built using ReactJS. I was responsible for building many user facing and core features of the mail web client.
 }
 {
 	% The team has adopted the Atomic CSS paradigm for maintaining style sheets developed by other engieers at Yahoo
@@ -176,6 +175,47 @@ Reusability and maintainability are important features in the context of compone
 \end{enumerate}
 
 \subsection{Evaluation Process}
+This report leverages AHP, a Multi-Criteria Design Analysis (MCDA) approach used to convert a set of qualitative comparisons into quantitative scores. The first step of AHP involves establishing a rating scale as illustrated in Table 2.1.
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|c|c|}
+		\hline
+		\textbf{Rating} & \textbf{Interpretation} \\ 
+		\hline
+		1 & Equally preferable \\
+		\hline 
+		2 & Slightly preferable \\
+		\hline
+		3 & Significantly preferable \\
+		\hline
+	\end{tabular}
+	\caption{Rating scale}
+\end{table}
+
+Next, the rating scale is used to analyze each evaluation criteria and quantify the relative importance of each criterion. This is illustrated in Table 2.2
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|c|c|}
+		\hline
+		\textbf{Criterion} & \textbf{Relative Importance} \\ 
+		\hline
+		Minimal usage of context-based styling & 10.7\% \\
+		\hline 
+		Low specificity & 10.7\% \\
+		\hline
+		Style simplicity & 7.5\% \\
+		\hline
+		Style reusability & 41.2\% \\
+		\hline
+		Separation of content and style & 29.9\% \\
+		\hline
+	\end{tabular}
+	\caption{Criteria weighting}
+\end{table}
+
+Finally, the score for each alternative is calculated for each criterion. The summation of scores for each criterion is the final score of the alternative. The final scores are compared to identify the more appropriate solution.
 
 \newpage
 
@@ -258,22 +298,6 @@ The following are the advantages of using the Atomic CSS method:
 
 	\item HTML5 documentation[2] promotes the use of semantic class names and states that a class name should be reflective of the element's behaviour instead of describing an element's presentation. This is being violated by the Atomic CSS approach as class names are used to describe an element's style.
 \end{enumerate}
-% SRP with classes
-% styling is not contextual
-% Since the component is reusable, the styles are reusable
-
-% % This approach does not need context-based styling to localize scope
-
-% binding markup and styles
-
-% \subsubsection{Explaination}
-
-% \subsubsection{Advantages}
-% Easy to clean up unused styles
-% \subsubsection{Disadvantages}
-% binds markup and styles
-% HTML5 semantic crap
-
 
 \newpage
 
@@ -304,18 +328,47 @@ The following are the disadvantages of the inline CSS method
 \end{enumerate}
 
 
-% image of inline and corresponding CSS
-% inline CSS
-% Drawbacks:
-% 1) If change occurs, should not be applied to every element 3) Ability to style using classes. Refer to https://vineetgupta22.wordpress.com/2011/07/09/inline-vs-internal-vs-external-css/
 \newpage
 
+\section{Results}
+Since the two solutions are compared against a set of relatively subjective evaluation criteria, the AHP is the most suitable MCDA method of quantitative analysis. The alternative score for each criterion is calculated and is then multiplied with the criterion’s weighting to obtain a final score of each alternative for each criterion. Table x.x represents a set of final scores. Figure x.y is the graphical representation of the set of final scores.
+
+\vspace{0.5cm}
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|c|c|c|}
+		\hline
+		\textbf{Criterion} & \textbf{Atomic CSS} & \textbf{Global CSS} \\ 
+		\hline
+		Minimal usage of context-based styling & 0.086 & 0.021 \\
+		\hline 
+		Low specificity & 0.086 & 0.021 \\
+		\hline
+		Style simplicity & 0.050 & 0.025 \\
+		\hline
+		Style reusability & 0.276 & 0.136 \\
+		\hline
+		Separation of content and style & 0.060 & 0.239 \\
+		\hline
+		\textbf{Total (in \%)} & \textbf{55.8} & \textbf{44.2} \\
+		\hline
+	\end{tabular}
+	\caption{Final scores}
+\end{table}
+
+\vspace{0.5cm}
+
+% Figure: Graphical representation of final scores
+
 \section{Conclusions}
-CONCLUSIONS
+All the solutions were judged primarily on context-based styling usage, selector specificity, style simplicity, style reusability and content-style separation. The accepted solutions, the Global CSS method and the Atomic CSS method, were found to satisfy all the design constraints whereas, the rejected solution, the Inline CSS method, was found not to satisfy the design constraints. The report utilizes AHP to perform a robust, quantitative analysis of the two techniques while dealing with multiple evaluation criteria.
+
+The results indicate that the Atomic CSS method fared significantly better than the Global CSS method when compared on the basis of context-based styling usage, selector specificity and style simplicity. On the basis of style reusability, the Atomic CSS method performed marginally better than the Global CSS method. However, on the basis of content and style separation, the Global CSS method was found to perform significantly better than the Atomic CSS method. Ultimately, this report concludes that the Atomic CSS method should be preferred over the Global CSS method.
 \newpage
 
 \section{Recommendations}
-RECOMMENDATIONS
+This report recommends using the Atomic CSS method to style content in component based applications.
 \newpage
 
 
@@ -339,3 +392,7 @@ ACKNOWLEDGEMENTS
 % [1] http://webdesign.about.com/od/beginningcss/qt/tipcssinlinesty.htm
 
 % [2] https://www.w3.org/TR/html5/dom.html#classes
+
+% --- unlinked ---
+
+% https://vineetgupta22.wordpress.com/2011/07/09/inline-vs-internal-vs-external-css/

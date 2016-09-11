@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99991 (TeX Live 2014) (preloaded format=xelatex 2014.5.25)  11 SEP 2016 02:08
+This is XeTeX, Version 3.14159265-2.6-0.99991 (TeX Live 2014) (preloaded format=xelatex 2014.5.25)  11 SEP 2016 13:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -629,37 +629,32 @@ LaTeX Font Warning: Font shape `EU1/TimesNewRoman(0)/m/sc' undefined
 [1
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 43--43
+Underfull \hbox (badness 10000) in paragraph at lines 42--42
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 43--43
+Underfull \hbox (badness 10000) in paragraph at lines 42--42
 
  []
 
 
-! LaTeX Error: There's no line here to end.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.43 }
-      
-? 
-
-Underfull \hbox (badness 10000) in paragraph at lines 43--43
+Underfull \hbox (badness 10000) in paragraph at lines 42--42
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 43--43
+Underfull \hbox (badness 10000) in paragraph at lines 42--42
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 43--43
+Underfull \hbox (badness 10000) in paragraph at lines 42--42
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 42--42
 
  []
 
@@ -674,7 +669,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 \tf@toc=\write3
 \openout3 = `wkrpt.toc'.
 
- [4] [1
+ [4] [5] [1
 
 ]
 File: images/selector-normal.png Graphic file (type QTm)
@@ -708,4 +703,4 @@ Here is how much of TeX's memory you used:
  1328 hyphenation exceptions out of 8191
  53i,7n,51p,10394b,219s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on wkrpt.pdf (17 pages).
+Output written on wkrpt.pdf (18 pages).

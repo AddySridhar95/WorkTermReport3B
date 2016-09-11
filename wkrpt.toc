@@ -1,5 +1,5 @@
 \contentsline {section}{Executive Summary}{iii}
-\contentsline {section}{Table of Contents}{iv}
+\contentsline {section}{Table of Contents}{v}
 \contentsline {section}{\numberline {1}Introduction}{1}
 \contentsline {subsection}{\numberline {1.1}Background Information}{1}
 \contentsline {subsection}{\numberline {1.2}Introduction to the Issue}{1}
@@ -21,7 +21,8 @@
 \contentsline {subsection}{\numberline {4.1}Explanation}{10}
 \contentsline {subsection}{\numberline {4.2}Advantages}{10}
 \contentsline {subsection}{\numberline {4.3}Disadvantages}{10}
-\contentsline {section}{\numberline {5}Conclusions}{11}
-\contentsline {section}{\numberline {6}Recommendations}{12}
+\contentsline {section}{\numberline {5}Results}{11}
+\contentsline {section}{\numberline {6}Conclusions}{11}
+\contentsline {section}{\numberline {7}Recommendations}{12}
 \contentsline {section}{References}{13}
 \contentsline {section}{Acknowledgements}{13}
