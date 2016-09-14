@@ -2,11 +2,7 @@
 \usepackage{wkrpt}
 \begin{document}
 
-% TODO change to Global scoped vs Atomic CSS
-
-% TODO: remove all occurences of atomic-scoped. there is nothing like that. change that to atomic css
-
-\title{An Analysis of Using Global Scoped Style Sheets and Atomic Scoped Style Sheets in the Context of Styling Component Based Applications}
+\title{An Analysis of Global Scoped CSS and Atomic CSS in the Context of Styling Component Based Applications}
 {
 	Yahoo!\\
 	Sunnyvale, CA
@@ -20,7 +16,7 @@
 }
 
 
-\letter{An Analysis of Using Global Scoped Style Sheets and Atomic Scoped Style Sheets in the Context of Styling Component Based Applications}{3B}{Yahoo!}{Mail Front-end}
+\letter{An Analysis of Global Scoped CSS and Atomic CSS in the Context of Styling Component Based Applications}{3B}{Yahoo!}{Mail Front-end}
 {
 	\noindent
 	Aditya Sridhar\\
@@ -28,31 +24,34 @@
 	Waterloo, ON N2L 3G1
 }
 {
-	This report, entitled \textit{“An Analysis of Using Global Scoped Style Sheets and Atomic Scoped Style Sheets in the Context of Styling Component Based Applications”}, was prepared during my 3B work term at Yahoo!, where I worked on Yahoo! Mail in the Front-end team.
+	This report, entitled \textit{“An Analysis of Global Scoped CSS and Atomic CSS in the Context of Styling Component Based Applications”}, was prepared during my 3B work term at Yahoo!, where I worked for the Yahoo! Mail front-end team.
 }
 {
-	The Yahoo! Mail front-end team is currently developing the next generation web client of Yahoo! Mail built using ReactJS. I was responsible for building many user facing and core features of the mail web client.
+	The Yahoo! Mail front-end team is currently developing the next generation web client of Yahoo! Mail built using ReactJS. I was responsible for building many user facing as well as core features on the mail web client.
 }
 {
-	% The team has adopted the Atomic CSS paradigm for maintaining style sheets developed by other engieers at Yahoo
-	Description of report and how it related to co-op position.
+	The front-end engineers at Yahoo invented the Atomic CSS paradigm to improve maintainability of style sheets in component based projects. This was done mainly to solve many problems with regards to maintaining global style sheets. This report compares the global scoped CSS method with the Atomic CSS method against a set of five evaluation criteria and identifies the more appropriate solution.
 }
 {
-	Acknowledgements
+	I would like to thank my manager, Mr Mohit Goenka for assigning me the responsibility of implementing critical features that will be used by hundreds of millions of users. I would also like to thank my team for encouraging me to follow good design practices while implementing the features I was assigned.
 }
-{
-	Aditya Sridhar, 20539123
-}
+% {
+% 	Aditya Sridhar, 20539123
+% }
 
 
 \tocsection{Executive Summary}
-EXECUTIVE SUMMARY
+
+
+The next generation of Yahoo Mail is built on ReactJS. ReactJS is a JavaScript framework used to build component based web application. The idea is that the component is responsible for a single part of the user interface which enhances the modularity of an application. Style rules are written in CSS files which target a particular element in the web page content markup that is to be styled. This report compares two different methods used to style web page content in a component based application.
+
+Maintainability is a major issue that is associated with CSS. It significantly affects all the developers in the team as it hampers project scalability. As the size of a project grows, maintainability of style sheets become harder. Low reusability of styles is one of the factors contributes to degradation of maintainability. This report discusses other factors that affect maintainability in detail. This report also implores how changing the scope of styles in a style sheet can lead to an improvement in maintainability of the style sheets.
+
+A set of design constraints was noted and solutions satisfying the constraints were compared. The report compares two different solutions against a set of five evaluation criteria: minimal contextual styling, style simplicity, style reusability, low specificity and separation of content and style. The report leverages AHP, a technique used to perform quantitative analysis of two techniques against a set of evaluation criteria. 
+
+Finally, the report recommends the use of Atomic CSS method to style web pages in a component based application. It is also highly recommended to follow a one-to-one mapping between styles and class names. This will increase the modularity of an application and will enable developers to maintain components instead of style sheets.
+
 \newpage
-
-% para 1: The next generation of Yahoo Mail is built on ReactJS. ReactJS is used to build component-based web application. The idea is that the component is a single unit of the UI and deals with all that is assocciation with that unit(check dan hood ...) This report analyses the use of Atomic CSS (component-scoped) and global scoped CSS
-
-% para 2: A more traditional approach
-
 
 \toc
 \lof
@@ -62,7 +61,7 @@ EXECUTIVE SUMMARY
 \section{Introduction}
 \subsection{Background Information}
 
-Yahoo! is a technology company and is recognized as one of the pioneers of the early-internet era. Yahoo! Mail is a web-based email service owned by Yahoo! with hundreds of millions of users worldwide. The next generation of Yahoo! Mail web client is currently being developed and is built using the ReactJS framework. ReactJS is a component-based JavaScript library used for building user interfaces. The idea behind a component-based framework is that a complex user interface should composed of multiple components, and each component should follow the Single Responsibility Principle (SRP). This implies implies that a particular component should be responsible for single part of the user interface.
+Yahoo! is a technology company and is recognized as one of the pioneers of the early-internet era. Yahoo! Mail is a web-based email service owned by Yahoo! with hundreds of millions of users worldwide. The next generation of Yahoo! Mail web client is currently being developed and is built using the ReactJS framework. ReactJS is a component based JavaScript library used for building user interfaces. The idea behind a component based framework is that a complex user interface should composed of multiple components, and each component should follow the Single Responsibility Principle (SRP). This implies that a particular component should be responsible for single part of the user interface.
 
 \vspace{0.5cm}
 
@@ -101,7 +100,7 @@ CSS is a collection of rules, each rule containing one or more selectors and a b
 
 The scope of a CSS rule is a portion of the web page where that rule can be used to style an element on the web page. The rules contained in a global-scoped style sheet can be used to style any element on the web page. Hence the scope of the rules in a global style sheet is not limited to a particular portion of the web page. Atomic CSS on the other hand is a design principle that advocates restricting the scope of a CSS rule to a component of the web page.
 
-This report compares CSS in global style sheets with Atomic CSS in the context of styling component-based applications. It first provides some additional information about the issue and lists a set of design constraints and the evaluation criteria. It identifies the benefits and pitfalls of each accepted solution. The report uses Analytical Hierarchical Process (AHP) to perform quantitative analysis of the alternatives against a set of evaluation criteria. The report then concludes by identifying the best solution and provides some recommendations.
+This report compares CSS in global style sheets with Atomic CSS in the context of styling component based applications. It first provides some additional information about the issue and lists a set of design constraints and the evaluation criteria. It identifies the benefits and pitfalls of each accepted solution. The report uses Analytical Hierarchical Process (AHP) to perform quantitative analysis of the alternatives against a set of evaluation criteria. The report then concludes by identifying the best solution and provides some recommendations.
 
 \newpage
 
@@ -200,7 +199,7 @@ Next, the rating scale is used to analyze each evaluation criteria and quantify 
 		\hline
 		\textbf{Criterion} & \textbf{Relative Importance} \\ 
 		\hline
-		Minimal usage of context-based styling & 10.7\% \\
+		Minimal contextual styling & 10.7\% \\
 		\hline 
 		Low specificity & 10.7\% \\
 		\hline
@@ -265,7 +264,7 @@ The following are the disadvantages of using global-scoped style sheets:
 
 \subsection{Atomic CSS}
 \subsubsection{Explanation}
-Atomic CSS advocates restricting the scope of a CSS rule to a component of the application. It was invented by engineers at Yahoo! primarily to adopt a more modular approach to maintaining style sheets. This approach was found to thrive in the context of component-based technologies like ReactJS. This approach violates the SoC principle since a component's presentation is mixed with its structure. However this is logically appropriate in the context of component-based applications as a component is considered an independent view that handles its own behaviour and application state. Hence this approach enables a developer to maintain components instead of maintaining style sheets.
+Atomic CSS advocates restricting the scope of a CSS rule to a component of the application. It was invented by engineers at Yahoo! primarily to adopt a more modular approach to maintaining style sheets. This approach was found to thrive in the context of component based technologies like ReactJS. This approach violates the SoC principle since a component's presentation is mixed with its structure. However this is logically appropriate in the context of component based applications as a component is considered an independent view that handles its own behaviour and application state. Hence this approach enables a developer to maintain components instead of maintaining style sheets.
 
 \vspace{0.5cm}
 
@@ -340,7 +339,7 @@ Since the two solutions are compared against a set of relatively subjective eval
 		\hline
 		\textbf{Criterion} & \textbf{Atomic CSS} & \textbf{Global CSS} \\ 
 		\hline
-		Minimal usage of context-based styling & 0.086 & 0.021 \\
+		Minimal contextual styling & 0.086 & 0.021 \\
 		\hline 
 		Low specificity & 0.086 & 0.021 \\
 		\hline
@@ -408,3 +407,13 @@ ACKNOWLEDGEMENTS
 % --- unlinked ---
 
 % https://vineetgupta22.wordpress.com/2011/07/09/inline-vs-internal-vs-external-css/
+
+
+
+% http://webdesign.about.com/od/beginningcss/qt/tipcssinlinesty.htm
+% https://philipwalton.com/articles/do-we-actually-need-specificity-in-css/
+% http://fullstackforum.com/software/2015/07/14/styling-in-react-and-atomic-css/
+% https://www.haikudeck.com/atomic-css-uncategorized-presentation-dJ0xlFjhBQ#slide62
+% https://www.smashingmagazine.com/2013/10/challenging-css-best-practices-atomic-approach/
+% http://acss.io/
+% https://www.smashingmagazine.com/2012/04/decoupling-html-from-css/
