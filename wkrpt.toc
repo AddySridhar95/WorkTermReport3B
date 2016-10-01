@@ -26,5 +26,5 @@
 \contentsline {section}{\numberline {5}Results}{11}
 \contentsline {section}{\numberline {6}Conclusions}{12}
 \contentsline {section}{\numberline {7}Recommendations}{13}
-\contentsline {section}{References}{14}
-\contentsline {section}{Acknowledgements}{14}
+\contentsline {section}{\numberline {8}References}{14}
+\contentsline {section}{\numberline {9}Acknowledgements}{15}

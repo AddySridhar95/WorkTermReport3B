@@ -126,7 +126,11 @@
 	\newpage
 }
 
-\renewcommand{\refname}{References}
+\newcommand*\myurl[2][http]{%
+  \begingroup% just to keep sffamily local
+    \urlstyle{sf}%
+    \url{#1://#2}%
+  \endgroup}
 
 \renewcommand{\appendix}[2]{
 	\setcounter{page}{1}
